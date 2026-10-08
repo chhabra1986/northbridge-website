@@ -3,368 +3,706 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>NorthBridge Automations</title>
-<meta name="description" content="Modular ERP and AI automation for schools, SMEs and service businesses. Based in Jaipur, India.">
+<title>NorthBridge Automations | School ERP, Business ERP &amp; AI Automation</title>
+<meta name="description" content="NorthBridge Automations builds connected School ERP and Business ERP with AI built in: fees, attendance, exams, admissions, HR, WhatsApp automation and AI assistants. Based in Jaipur, India.">
+<meta property="og:title" content="NorthBridge Automations">
+<meta property="og:description" content="One connected ERP for your school or business, with AI built in. Jaipur, India.">
+<meta property="og:image" content="https://northbridgeautomations.co.in/assets/logo-full.png">
+<link rel="icon" href="assets/logo-mark.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: a single "core" spine — hero configurator on the left of the spine, modules plugging into it; sections stack along the same left rule */
+/* Layout: logo arch as the motif — a single "bridge" spine; sections alternate between open paper and deep navy bands */
 :root{
-  --bg:#F2F4F1; --surface:#FFFFFF; --ink:#13203A; --muted:#55607A; --line:#D5DBD6;
-  --accent:#0E7A68; --accent-soft:#DCEFEA; --mark:#E2A13B;
-  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
-  --body:"Public Sans", "Segoe UI", system-ui, sans-serif;
-  --mono:"JetBrains Mono", ui-monospace, Consolas, monospace;
-  --wrap:1120px;
+  --bg:#FAF9F5; --paper:#FFFFFF; --ink:#12223B; --muted:#5D6670; --line:#E3E1DA;
+  --teal:#2C9C8C; --teal-ink:#1F7A6D; --teal-soft:#E3F1EE; --sand:#F1EEE6; --gold:#D99A3B;
+  --navy:#12223B; --on-navy:#EEF2F6; --on-navy-muted:#A9B4C4;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"Public Sans","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  --wrap:1160px; --r:12px;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0F1626; --surface:#162036; --ink:#E7ECF4; --muted:#9AA6BD; --line:#283551;
-  --accent:#3CC2A6; --accent-soft:#163B3A; --mark:#F0B455; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#0F1626; --surface:#162036; --ink:#E7ECF4; --muted:#9AA6BD; --line:#283551;
-  --accent:#3CC2A6; --accent-soft:#163B3A; --mark:#F0B455; color-scheme:dark}
-
+@media (prefers-color-scheme: dark){:root{
+  --bg:#0E1726; --paper:#152136; --ink:#E9EEF4; --muted:#9FAABA; --line:#25324A;
+  --teal:#3DBBA8; --teal-ink:#5CCDBB; --teal-soft:#15363A; --sand:#121D30; --gold:#EDB25A;
+  --navy:#0A1220; --on-navy:#EEF2F6; --on-navy-muted:#A9B4C4; color-scheme:dark}}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;padding-inline:20px;padding-block:0}
-.wrap{max-width:var(--wrap);margin-inline:auto}
-h1,h2,h3{font-family:var(--display);line-height:1.1;text-wrap:balance;margin:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:20px}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.1;margin:0;text-wrap:balance}
 p{margin:0}
-a{color:var(--accent)}
-a:focus-visible,button:focus-visible{outline:2px solid var(--mark);outline-offset:3px;border-radius:4px}
-.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+a{color:var(--teal-ink)}
+img,svg{max-width:100%}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 15px/1 var(--body);padding:14px 22px;border-radius:999px;text-decoration:none;border:1.5px solid var(--ink);color:var(--ink);background:transparent;cursor:pointer;transition:transform .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn.solid{background:var(--teal);border-color:var(--teal);color:#fff}
+.btn.dark{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.btn svg{width:16px;height:16px}
 
-/* nav */
-header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);margin-inline:-20px;padding-inline:20px}
-header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px;flex-wrap:wrap}
-.brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:19px;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
-.brand svg{flex:none}
-nav.links{display:flex;gap:22px;flex-wrap:wrap;font-size:14px;font-weight:500}
+/* header */
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:20px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);margin-right:auto}
+.brand .mark{width:38px;height:30px}
+.brand .wm{display:flex;flex-direction:column;line-height:1}
+.brand .wm b{font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:-.02em}
+.brand .wm b span{color:var(--teal)}
+.brand .wm small{font-family:var(--body);font-weight:600;font-size:9px;letter-spacing:.32em;color:var(--muted);margin-top:3px}
+nav.links{display:flex;gap:22px;font-size:14px;font-weight:500}
 nav.links a{color:var(--muted);text-decoration:none}
 nav.links a:hover{color:var(--ink)}
+.top .btn{padding:10px 16px;font-size:14px}
+@media (max-width:960px){nav.links{display:none}}
 
 /* hero */
-.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center;padding-block:64px 56px}
-.hero > *{min-width:0}
-.hero h1{font-size:clamp(38px,5.4vw,64px);font-weight:800;letter-spacing:-.025em;margin-top:14px}
-.hero h1 em{font-style:normal;color:var(--accent)}
-.hero .lede{font-size:18px;color:var(--muted);max-width:52ch;margin-top:20px}
-.tagline{font-family:var(--mono);font-size:13px;color:var(--muted);margin-top:22px;display:flex;flex-wrap:wrap;gap:8px 14px}
-.tagline span::before{content:"";display:inline-block;width:7px;height:7px;background:var(--mark);margin-right:8px;vertical-align:1px}
-.ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
-.btn{display:inline-flex;align-items:center;gap:8px;font:600 15px var(--body);padding:12px 20px;border-radius:8px;text-decoration:none;border:1.5px solid var(--ink);color:var(--ink);background:transparent;cursor:pointer}
-.btn.primary{background:var(--ink);color:var(--bg)}
-.btn:hover{transform:translateY(-1px)}
+.hero{padding-block:72px 64px;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero>*{min-width:0}
+.hero h1{font-size:clamp(40px,5.6vw,68px);font-weight:800;letter-spacing:-.03em;margin-top:16px}
+.hero h1 em{font-style:normal;color:var(--teal)}
+.hero .lede{font-size:18px;color:var(--muted);margin-top:22px;max-width:54ch}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.boards{margin-top:34px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px;color:var(--muted)}
+.boards span.b{font-family:var(--mono);font-size:12px;padding:5px 10px;border:1px solid var(--line);border-radius:999px;background:var(--paper);color:var(--ink)}
 
-/* configurator */
-.config{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:0 18px 40px -28px rgba(19,32,58,.45)}
-.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px}
+/* hero console */
+.console{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 30px 60px -40px rgba(18,34,59,.55)}
+.console-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px;background:var(--bg)}
 .seg button{font:600 13px var(--body);border:0;background:transparent;color:var(--muted);padding:7px 14px;border-radius:999px;cursor:pointer}
 .seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
-.config-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.config-head .eyebrow{color:var(--muted)}
-.mods{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:18px}
-.mod{font-size:13px;font-weight:500;padding:9px 10px;border-radius:7px;border:1px solid var(--line);color:var(--ink);background:var(--bg);transition:background .25s,border-color .25s}
-.mod.on{background:var(--accent-soft);border-color:var(--accent)}
-.core{margin-top:14px;display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;color:var(--muted);border-top:1px dashed var(--line);padding-top:14px;flex-wrap:wrap}
-.core b{color:var(--ink);font-weight:500}
-.feed{margin-top:16px;display:grid;gap:8px}
-.feed .row{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:baseline;font-size:13px;padding:9px 12px;border-radius:8px;background:var(--bg)}
-.feed .row > *{min-width:0}
-.feed .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);align-self:center}
-.feed .t{font-family:var(--mono);font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
-.sample{font-size:11px;color:var(--muted);margin-top:10px;font-family:var(--mono)}
+.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:18px}
+.kpi{background:var(--bg);border-radius:10px;padding:12px}
+.kpi .v{font-family:var(--display);font-weight:700;font-size:24px;font-variant-numeric:tabular-nums}
+.kpi .l{font-size:12px;color:var(--muted)}
+.bar{height:6px;background:var(--line);border-radius:6px;margin-top:8px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--teal);border-radius:6px}
+.feed{margin-top:14px;display:grid;gap:8px}
+.feed .row{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:center;font-size:13px;padding:10px 12px;border-radius:10px;border:1px solid var(--line)}
+.feed .ch{font-family:var(--mono);font-size:10px;letter-spacing:.06em;padding:3px 7px;border-radius:6px;background:var(--teal-soft);color:var(--teal-ink)}
+.feed .t{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.feed .row.new{animation:slide .45s ease-out}
+@keyframes slide{from{transform:translateY(-4px);opacity:.4}to{transform:none;opacity:1}}
+.sample{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:10px}
 
 /* sections */
-section.block{padding-block:72px;border-top:1px solid var(--line)}
-.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:40px;align-items:end;margin-bottom:40px}
-.sec-head h2{font-size:clamp(28px,3.6vw,42px);font-weight:700;letter-spacing:-.02em;margin-top:10px}
-.sec-head p{color:var(--muted);max-width:60ch}
+section.block{padding-block:88px}
+.head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:40px;align-items:end;margin-bottom:44px}
+.head h2{font-size:clamp(30px,3.8vw,46px);font-weight:800;letter-spacing:-.025em;margin-top:12px}
+.head p{color:var(--muted);max-width:60ch}
+.band{background:var(--navy);color:var(--on-navy)}
+.band .eyebrow{color:var(--gold)}
+.band .head p,.band p.m{color:var(--on-navy-muted)}
+.sand{background:var(--sand)}
 
-.products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.product{padding:26px 24px;background:var(--surface);border:1px solid var(--line);border-radius:12px;display:flex;flex-direction:column;gap:14px}
-.product h3{font-size:22px;font-weight:700}
-.product .unit{font-family:var(--mono);font-size:12px;color:var(--accent)}
-.product ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
-.product li{font-size:13px;padding:4px 9px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
-.product.ai{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.product.ai p, .product.ai li{color:color-mix(in srgb,var(--bg) 78%,var(--ink))}
-.product.ai li{border-color:color-mix(in srgb,var(--bg) 25%,var(--ink))}
-.product.ai .unit{color:var(--mark)}
+/* problem strip */
+.pains{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.pain{background:var(--paper);padding:22px}
+.pain b{display:block;font-family:var(--display);font-size:18px;margin-bottom:6px}
+.pain p{font-size:14px;color:var(--muted)}
 
-/* stack / sequence */
-.stack{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface)}
-.layer{padding:22px 18px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
-.layer:last-child{border-right:0}
-.layer .n{font-family:var(--mono);font-size:12px;color:var(--mark);font-weight:500}
-.layer h3{font-size:19px;font-weight:700}
-.layer p{font-size:14px;color:var(--muted)}
-.stack-note{margin-top:18px;font-size:14px;color:var(--muted);max-width:70ch}
+/* product suite */
+.suite{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.prod{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:10px}
+.prod .ico{width:40px;height:40px;border-radius:10px;background:var(--teal-soft);display:grid;place-items:center;color:var(--teal-ink)}
+.prod .ico svg{width:22px;height:22px}
+.prod h3{font-size:19px;font-weight:700}
+.prod h3 small{display:block;font-family:var(--body);font-size:13px;font-weight:500;color:var(--muted);margin-top:4px;letter-spacing:0}
+.prod ul{margin:0;padding:0;list-style:none;font-size:14px;color:var(--muted);display:grid;gap:4px}
+.prod li::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--teal);margin-right:8px;vertical-align:2px}
+.prod.ai{background:var(--navy);border-color:var(--navy);color:var(--on-navy)}
+.prod.ai .ico{background:rgba(255,255,255,.08);color:var(--gold)}
+.prod.ai h3 small,.prod.ai ul{color:var(--on-navy-muted)}
+.prod.ai li::before{background:var(--gold)}
 
-/* tech */
-.tech{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
-.tech div{background:var(--surface);padding:18px}
-.tech dt{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.tech dd{margin:6px 0 0;font-weight:600;font-size:15px}
+/* AI */
+.ai-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
+.chat{background:#0B1525;border:1px solid #22324D;border-radius:18px;padding:18px;display:grid;gap:10px;max-width:460px;justify-self:end;width:100%}
+.chat .bub{max-width:82%;padding:10px 14px;border-radius:14px;font-size:14px;line-height:1.45}
+.chat .u{justify-self:end;background:#1F7A6D;color:#fff;border-bottom-right-radius:4px}
+.chat .a{background:#17243A;color:#E6ECF3;border-bottom-left-radius:4px}
+.chat .meta{font-family:var(--mono);font-size:10px;color:#7F8DA3;letter-spacing:.06em}
+.ai-list{display:grid;gap:18px;margin-top:28px}
+.ai-list div{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px}
+.ai-list b{display:block;font-family:var(--display);font-size:17px;color:var(--on-navy)}
+.ai-list p{font-size:14px;color:var(--on-navy-muted)}
+.ai-list .n{font-family:var(--mono);font-size:12px;color:var(--gold);padding-top:3px}
+
+/* business */
+.biz{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
+.biz .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:26px}
+.biz h3{font-size:22px;margin-bottom:8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.chips span{font-size:13px;padding:5px 10px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:var(--bg)}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;counter-reset:s}
+.step{border-top:2px solid var(--ink);padding-top:16px}
+.step .n{font-family:var(--mono);font-size:12px;color:var(--teal-ink)}
+.step h3{font-size:19px;margin:6px 0 6px}
+.step p{font-size:14px;color:var(--muted)}
+.integr{margin-top:40px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.integr .lbl{font-size:13px;color:var(--muted);margin-right:6px}
+.integr span.i{font-weight:600;font-size:14px;padding:8px 14px;border-radius:8px;background:var(--paper);border:1px solid var(--line)}
 
 /* pricing */
-.pricing{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.price{padding:24px;border-top:3px solid var(--ink);background:var(--surface);border-radius:0 0 10px 10px;display:flex;flex-direction:column;gap:10px}
-.price h3{font-size:20px}
-.price .basis{font-family:var(--display);font-size:26px;font-weight:700;color:var(--accent)}
-.price .basis small{font-family:var(--body);font-size:14px;color:var(--muted);font-weight:500}
-.price p{font-size:14px;color:var(--muted)}
+.ptabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:24px}
+.ptabs button{font:600 14px var(--body);padding:10px 18px;border-radius:999px;border:1.5px solid var(--line);background:var(--paper);color:var(--muted);cursor:pointer}
+.ptabs button[aria-selected="true"]{border-color:var(--ink);background:var(--ink);color:var(--bg)}
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
+.plan{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:14px;position:relative}
+.plan.pop{border:2px solid var(--teal);box-shadow:0 24px 50px -36px rgba(44,156,140,.8)}
+.plan .tag{position:absolute;top:-12px;left:24px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:var(--teal);color:#fff;padding:4px 10px;border-radius:999px}
+.plan h3{font-size:21px}
+.plan .for{font-size:14px;color:var(--muted);min-height:2.9em}
+.price{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
+.price .amt{font-family:var(--display);font-weight:800;font-size:42px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.price .per{font-size:14px;color:var(--muted)}
+.plan .min{font-family:var(--mono);font-size:12px;color:var(--muted);border-bottom:1px dashed var(--line);padding-bottom:14px}
+.plan ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:14px}
+.plan li{display:grid;grid-template-columns:18px minmax(0,1fr);gap:8px}
+.plan li svg{width:16px;height:16px;color:var(--teal);margin-top:3px}
+.plan li.inc{font-weight:600}
+.plan .btn{margin-top:auto}
+.pnote{margin-top:22px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:18px}
+.offer{background:var(--navy);color:var(--on-navy);border-radius:16px;padding:24px 26px;display:grid;gap:8px}
+.offer .eyebrow{color:var(--gold)}
+.offer h3{font-size:22px}
+.offer p{color:var(--on-navy-muted);font-size:14px}
+.fine{font-size:13px;color:var(--muted);background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px 22px;display:grid;gap:6px}
+.fine b{color:var(--ink)}
+
+/* compare */
+.cmp{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--paper)}
+.cmp table{width:100%;border-collapse:collapse;min-width:620px;font-size:14px}
+.cmp th,.cmp td{text-align:left;padding:14px 18px;border-bottom:1px solid var(--line);vertical-align:top}
+.cmp tr:last-child td{border-bottom:0}
+.cmp th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;background:var(--bg)}
+.cmp td:first-child{font-weight:600}
+.cmp td.us{color:var(--teal-ink);font-weight:600}
+
+/* brochure */
+.broch{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:32px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:28px 32px}
+.cover{width:118px;aspect-ratio:210/297;border-radius:6px;background:var(--navy);display:grid;place-items:center;box-shadow:0 18px 30px -18px rgba(18,34,59,.7);padding:10px}
+.cover svg{width:56px;height:46px}
+.broch h3{font-size:26px}
+.broch p{color:var(--muted);margin-top:6px}
 
 /* founder */
 .founder{display:grid;grid-template-columns:auto minmax(0,1fr);gap:32px;align-items:start}
-.mono-badge{width:96px;height:96px;border-radius:12px;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:34px}
+.badge{width:96px;height:96px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:32px}
 .founder h3{font-size:26px}
-.founder .role{color:var(--accent);font-weight:600;margin-top:4px}
-.founder p.bio{margin-top:14px;color:var(--muted);max-width:68ch}
+.founder .role{color:var(--teal-ink);font-weight:600;margin-top:4px}
+.founder p.bio{margin-top:14px;color:var(--muted);max-width:70ch}
 .creds{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-.creds span{font-family:var(--mono);font-size:12px;padding:4px 10px;background:var(--accent-soft);border-radius:6px;color:var(--ink)}
+.creds span{font-family:var(--mono);font-size:12px;padding:4px 10px;background:var(--teal-soft);border-radius:6px}
+
+/* faq */
+.faq{display:grid;gap:10px;max-width:860px}
+.faq details{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px 20px}
+.faq summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::after{content:"+";font-family:var(--mono);color:var(--teal-ink)}
+.faq details[open] summary::after{content:"–"}
+.faq details p{margin-top:10px;color:var(--muted);font-size:15px}
 
 /* contact */
-.contact{background:var(--ink);color:var(--bg);border-radius:16px;padding:44px 40px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:36px;align-items:center}
-.contact h2{font-size:clamp(28px,3.4vw,40px);font-weight:800;letter-spacing:-.02em}
-.contact p{color:color-mix(in srgb,var(--bg) 75%,var(--ink));margin-top:12px}
-.contact .eyebrow{color:var(--mark)}
-.mailbox{background:color-mix(in srgb,var(--bg) 8%,var(--ink));border:1px solid color-mix(in srgb,var(--bg) 22%,var(--ink));border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:12px}
-.mailbox code{font-family:var(--mono);font-size:15px;word-break:break-all;user-select:all}
-.mailbox .row{display:flex;gap:10px;flex-wrap:wrap}
-.mailbox .btn{border-color:var(--bg);color:var(--bg);padding:9px 14px;font-size:14px}
-.mailbox .btn.primary{background:var(--bg);color:var(--ink)}
-.copied{font-family:var(--mono);font-size:12px;color:var(--mark);min-height:1em}
+.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:48px;align-items:start}
+.contact h2{font-size:clamp(30px,3.8vw,44px);font-weight:800;letter-spacing:-.02em;margin-top:12px}
+.cinfo{margin-top:24px;display:grid;gap:14px}
+.cinfo div{display:grid;gap:2px}
+.cinfo span{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--on-navy-muted)}
+.cinfo a,.cinfo b{color:var(--on-navy);font-weight:600;text-decoration:none;word-break:break-word}
+form.demo{background:var(--paper);color:var(--ink);border-radius:18px;padding:26px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+form.demo label{display:grid;gap:6px;font-size:13px;font-weight:600}
+form.demo .full{grid-column:1/-1}
+form.demo input,form.demo select,form.demo textarea{font:inherit;font-weight:400;font-size:15px;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%}
+form.demo textarea{min-height:90px;resize:vertical}
+form.demo input:focus,form.demo select:focus,form.demo textarea:focus{outline:none;border-color:var(--teal)}
+.fmsg{grid-column:1/-1;font-size:13px;color:var(--teal-ink);min-height:1.2em}
 
-footer{padding-block:36px 48px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+footer{background:var(--navy);color:var(--on-navy-muted);border-top:1px solid rgba(255,255,255,.08)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:28px 36px;font-size:13px}
+footer a{color:var(--on-navy)}
 
-@media (max-width:900px){
-  .hero,.sec-head,.contact{grid-template-columns:1fr}
-  .products,.pricing{grid-template-columns:1fr}
-  .stack{grid-template-columns:1fr}
-  .layer{border-right:0;border-bottom:1px solid var(--line)}
-  .layer:last-child{border-bottom:0}
-  .tech{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .hero{padding-block:40px}
-  section.block{padding-block:52px}
-  .contact{padding:30px 22px}
+@media (max-width:960px){
+  .hero,.head,.ai-grid,.contact,.pnote{grid-template-columns:1fr}
+  .suite{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pains,.steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .plans,.biz{grid-template-columns:1fr}
+  .chat{justify-self:start}
+  section.block{padding-block:60px}
+  .hero{padding-block:44px}
+  .broch{grid-template-columns:auto minmax(0,1fr)}
+  .broch .btn{grid-column:1/-1;justify-self:start}
 }
-@media (max-width:480px){
-  .mods{grid-template-columns:repeat(2,minmax(0,1fr))}
-  nav.links{gap:14px}
+@media (max-width:560px){
+  .suite,.pains,.steps{grid-template-columns:1fr}
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  form.demo{grid-template-columns:1fr}
   .founder{grid-template-columns:1fr}
+  .broch{grid-template-columns:1fr}
+  .top .btn{display:none}
 }
-@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
-.feed .row.new{animation:slide .4s ease-out}
-@keyframes slide{from{transform:translateY(-4px);opacity:.4}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
 </style>
-
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark" viewBox="0 0 140 112"><path d="M22 92V60a48 48 0 0 1 96 0v32" fill="none" stroke="currentColor" stroke-width="13"/><path d="M12 98h116" stroke="currentColor" stroke-width="12" stroke-linecap="round"/><circle cx="70" cy="12" r="11" fill="#2C9C8C"/></symbol>
+  <symbol id="tick" viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="dl" viewBox="0 0 16 16"><path d="M8 2v8m0 0L4.5 6.5M8 10l3.5-3.5M3 13h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="NorthBridge Automations home">
-      <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect width="30" height="30" rx="7" fill="var(--ink)"/><path d="M6 21 Q15 9 24 21" fill="none" stroke="var(--bg)" stroke-width="2.2"/><path d="M15 4 L17.5 10 L15 8.6 L12.5 10 Z" fill="var(--mark)"/><path d="M6 21 H24" stroke="var(--bg)" stroke-width="2.2"/></svg>
-      NorthBridge Automations
+      <svg class="mark" style="color:var(--ink)"><use href="#mark"/></svg>
+      <span class="wm"><b>North<span>Bridge</span></b><small>AUTOMATIONS</small></span>
     </a>
     <nav class="links" aria-label="Main">
-      <a href="#products">Products</a>
-      <a href="#platform">Platform</a>
+      <a href="#products">School ERP</a>
+      <a href="#ai">AI</a>
+      <a href="#business">Business ERP</a>
       <a href="#pricing">Pricing</a>
-      <a href="#about">About</a>
+      <a href="#brochure">Brochure</a>
       <a href="#contact">Contact</a>
     </nav>
+    <a class="btn solid" href="#contact">Book a free demo</a>
   </div>
 </header>
 
-<main class="wrap" id="top">
-  <section class="hero">
-    <div>
-      <div class="eyebrow">Jaipur, India · ERP + AI</div>
-      <h1>One ERP core, <em>configured</em> for your school or your business.</h1>
-      <p class="lede">NorthBridge builds modular ERP systems for schools, SMEs, institutions and service businesses, with an AI layer that sends the reminders, reads the paperwork and writes the reports, so your team doesn't have to.</p>
-      <div class="tagline"><span>ERP Systems</span><span>Business Automation</span><span>AI Solutions</span></div>
-      <div class="ctas">
-        <a class="btn primary" href="#contact">Book a pilot</a>
-        <a class="btn" href="#products">See the modules</a>
-      </div>
-    </div>
-
-    <div class="config" aria-label="Module configurator example">
-      <div class="config-head">
-        <span class="eyebrow">Configure the core</span>
-        <div class="seg" role="group" aria-label="Choose edition">
-          <button id="ed-school" aria-pressed="true" data-ed="school">School</button>
-          <button id="ed-biz" aria-pressed="false" data-ed="business">Business</button>
+<main id="top">
+  <div class="wrap">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">School ERP · Business ERP · AI automation</div>
+        <h1>One connected ERP for your whole school, with <em>AI built in</em>.</h1>
+        <p class="lede">Admissions, fees, attendance, exams, HR and parent communication in one system. Our AI layer sends the reminders, reads the paperwork and writes the reports on WhatsApp, email and app, so your office runs on time.</p>
+        <div class="ctas">
+          <a class="btn solid" href="#contact">Book a free demo</a>
+          <a class="btn" href="assets/NorthBridge-Automations-Brochure.pdf" download><svg><use href="#dl"/></svg>Download brochure (PDF)</a>
         </div>
+        <div class="boards"><span>Report-card formats for</span><span class="b">CBSE</span><span class="b">ICSE</span><span class="b">IB</span><span class="b">Cambridge</span><span class="b">State boards</span></div>
       </div>
-      <div class="mods" id="mods"></div>
-      <div class="core"><b>CORE</b> database · REST APIs · role-based access · AI &amp; workflows</div>
-      <div class="feed" id="feed" aria-live="polite"></div>
-      <p class="sample">Example activity, for illustration</p>
+
+      <div class="console" aria-label="Example dashboard">
+        <div class="console-head">
+          <span class="eyebrow" style="color:var(--muted)">Today on NorthBridge</span>
+          <div class="seg" role="group" aria-label="Choose edition">
+            <button type="button" id="ed-school" aria-pressed="true" data-ed="school">School</button>
+            <button type="button" id="ed-biz" aria-pressed="false" data-ed="business">Business</button>
+          </div>
+        </div>
+        <div class="kpis" id="kpis"></div>
+        <div class="feed" id="feed" aria-live="polite"></div>
+        <p class="sample">Example data, for illustration</p>
+      </div>
+    </section>
+  </div>
+
+  <section class="block sand" style="padding-block:56px">
+    <div class="wrap">
+      <div class="pains">
+        <div class="pain"><b>Fees chased by phone</b><p>Automatic WhatsApp and SMS reminders, online payment links and instant receipts.</p></div>
+        <div class="pain"><b>Five apps, no single record</b><p>One student record shared by admissions, accounts, exams, transport and parents.</p></div>
+        <div class="pain"><b>Report cards take weeks</b><p>Board-ready formats, auto-calculated grades and AI-drafted teacher comments.</p></div>
+        <div class="pain"><b>Leadership flies blind</b><p>Live dashboards for collections, attendance and admissions, with risk alerts.</p></div>
+      </div>
     </div>
   </section>
 
   <section class="block" id="products">
-    <div class="sec-head">
-      <div><div class="eyebrow">Products</div><h2>Three products, one platform.</h2></div>
-      <p>We don't sell a giant ERP you have to bend your organisation around. Every client runs on the same tested core, switched on module by module for the way you already work.</p>
-    </div>
-    <div class="products">
-      <article class="product">
-        <div class="unit">For K–12 &amp; international schools</div>
-        <h3>NorthBridge School ERP</h3>
-        <p>Admissions to report cards in one system, built by people who run school IT every day.</p>
-        <ul><li>Students</li><li>Staff</li><li>Attendance</li><li>Exams &amp; marks</li><li>Fees</li><li>Timetable</li><li>Homework</li><li>Parent communication</li><li>Inventory</li><li>Transport</li><li>HR &amp; payroll</li><li>Dashboards</li></ul>
-      </article>
-      <article class="product">
-        <div class="unit">For SMEs &amp; service businesses</div>
-        <h3>NorthBridge Business ERP</h3>
-        <p>From the first enquiry to the final invoice, with billing, purchasing and live business numbers.</p>
-        <ul><li>CRM</li><li>Sales &amp; quotations</li><li>Purchase</li><li>Inventory</li><li>Vendors</li><li>Invoicing</li><li>Expenses</li><li>HR</li><li>Payroll</li><li>Accounting integration</li><li>Analytics</li></ul>
-      </article>
-      <article class="product ai">
-        <div class="unit">Works with either edition</div>
-        <h3>AI Automation Layer</h3>
-        <p>AI that works on your ERP data and talks to people on the channels they already use.</p>
-        <ul><li>AI chatbot</li><li>Email &amp; WhatsApp automation</li><li>Document processing</li><li>AI-generated reports</li><li>Workflow automation</li><li>Predictive analytics</li><li>Knowledge assistants (RAG)</li><li>Reminders &amp; notifications</li></ul>
-      </article>
+    <div class="wrap">
+      <div class="head">
+        <div><div class="eyebrow">NorthBridge School ERP</div><h2>Eight connected modules. One school record.</h2></div>
+        <p>Switch on what you need today and add more as you grow. Every module shares the same student, staff and fee data, so nothing is typed twice.</p>
+      </div>
+      <div class="suite">
+        <article class="prod"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></div><h3>Core SIS<small>Students, staff &amp; records</small></h3><ul><li>Student &amp; staff profiles</li><li>Documents &amp; certificates</li><li>Classes, sections, houses</li><li>Role-based access</li></ul></article>
+        <article class="prod"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></svg></div><h3>Fees &amp; Finance<small>Collections without chasing</small></h3><ul><li>Fee structures &amp; concessions</li><li>Online payments &amp; receipts</li><li>Auto reminders &amp; late fees</li><li>Expenses &amp; Tally export</li></ul></article>
+        <article class="prod"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></div><h3>Admissions CRM<small>Enquiry to enrolment</small></h3><ul><li>Enquiry &amp; lead tracking</li><li>Online application forms</li><li>Follow-up automation</li><li>Seat &amp; waitlist management</li></ul></article>
+        <article class="prod"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5l8-2 8 2v14l-8 2z"/><path d="M12 3v18"/></svg></div><h3>Academics<small>Exams, homework, report cards</small></h3><ul><li>Timetable &amp; substitutions</li><li>Homework &amp; assignments</li><li>Gradebooks &amp; report cards</li><li>Attendance (app, RFID, biometric)</li></ul></article>
+        <article class="prod"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c.8-3.5 3.2-5 6-5s5.2 1.5 6 5M15 15.5c2.6 0 4.6 1.3 5.5 4.5"/></svg></div><h3>HR &amp; Payroll<small>For every school team</small></h3><ul><li>Staff attendance &amp; leave</li><li>Payroll, PF, ESI, TDS</li><li>Payslips &amp; self-service</li><li>Appraisals</li></ul></article>
+        <article class="prod"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v11H8l-4 4z"/></svg></div><h3>Connect<small>Parents, on their channels</small></h3><ul><li>WhatsApp, SMS &amp; email</li><li>Parent &amp; staff app</li><li>Circulars &amp; diary</li><li>Events calendar &amp; gallery</li></ul></article>
+        <article class="prod"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="14" height="10" rx="2"/><path d="M17 10h3l1 3v4h-4"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg></div><h3>Campus Ops<small>Transport, stock &amp; safety</small></h3><ul><li>Transport routes &amp; GPS</li><li>Inventory &amp; school store</li><li>Library &amp; hostel</li><li>Visitor management</li></ul></article>
+        <article class="prod ai"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l2.2 5.3L20 9l-4.5 3.8L17 19l-5-3.2L7 19l1.5-6.2L4 9l5.8-.7z"/></svg></div><h3>Insight AI<small>The layer on top</small></h3><ul><li>AI assistant on WhatsApp</li><li>AI report-card comments</li><li>Form &amp; receipt reading</li><li>Fee-default &amp; attendance alerts</li></ul></article>
+      </div>
     </div>
   </section>
 
-  <section class="block" id="platform">
-    <div class="sec-head">
-      <div><div class="eyebrow">How it's built</div><h2>Core → Modules → Workflows → AI → Reports</h2></div>
-      <p>Each layer builds on the one before it. That's why we can bring a new school or business live in weeks, not quarters.</p>
+  <section class="block band" id="ai">
+    <div class="wrap ai-grid">
+      <div>
+        <div class="eyebrow">Insight AI</div>
+        <h2 style="font-size:clamp(30px,3.8vw,46px);font-weight:800;letter-spacing:-.025em;margin-top:12px">An assistant that knows your school, and only shows each person what they're allowed to see.</h2>
+        <div class="ai-list">
+          <div><span class="n">01</span><span><b>Answers parents and staff 24×7</b><p>Fee dues, timetables, circulars, transport timings and policies, answered from your own ERP data and documents on WhatsApp, web and app.</p></span></div>
+          <div><span class="n">02</span><span><b>Role-aware by design</b><p>A parent sees only their own child. A teacher sees their classes. The principal sees the whole school.</p></span></div>
+          <div><span class="n">03</span><span><b>Does the paperwork</b><p>Reads admission forms, bank receipts and supplier invoices into the ERP, and drafts report-card comments for teachers to approve.</p></span></div>
+          <div><span class="n">04</span><span><b>Spots problems early</b><p>Flags likely fee defaults, falling attendance and slipping grades, and sends leadership a weekly summary.</p></span></div>
+        </div>
+      </div>
+      <div class="chat" aria-label="Example WhatsApp conversation">
+        <span class="meta">WHATSAPP · EXAMPLE</span>
+        <div class="bub u">What's pending for Aarav's fees?</div>
+        <div class="bub a">Term 2 fee of ₹18,500 for Aarav Sharma (Grade 6B) is due on 15 Oct. Here is your secure payment link. Would you like a reminder on the 13th?</div>
+        <div class="bub u">Yes please. Also, when is the PTM?</div>
+        <div class="bub a">Reminder set. Grade 6 PTM is on Saturday, 18 Oct, 9:00 am to 12:30 pm. Aarav's class teacher is Ms. Mehta, slot 10:20 am.</div>
+      </div>
     </div>
-    <div class="stack">
-      <div class="layer"><span class="n">1 · Core</span><h3>Core platform</h3><p>One database, secure APIs and role-based logins for admins, staff, parents and customers.</p></div>
-      <div class="layer"><span class="n">2 · Modules</span><h3>Modules</h3><p>Switch on fees, attendance, inventory or CRM as you need them. Pay for what you use.</p></div>
-      <div class="layer"><span class="n">3 · Workflows</span><h3>Workflows</h3><p>Approvals, escalations and scheduled jobs set up around your existing process.</p></div>
-      <div class="layer"><span class="n">4 · AI</span><h3>AI agents</h3><p>Assistants answer questions from your own policies and records, and agents act on ERP data.</p></div>
-      <div class="layer"><span class="n">5 · Reports</span><h3>Reports</h3><p>PDF and Excel exports, dashboards and AI-written summaries for leadership.</p></div>
-    </div>
-    <p class="stack-note">Your data stays in your ERP. AI features work on top of it with the same role permissions as the people using it, so a parent only ever sees their own child's records.</p>
+  </section>
 
-    <dl class="tech" style="margin-top:28px">
-      <div><dt>Backend</dt><dd>Java · Spring Boot</dd></div>
-      <div><dt>Database</dt><dd>MySQL</dd></div>
-      <div><dt>Frontend</dt><dd>React</dd></div>
-      <div><dt>Security</dt><dd>JWT · role-based access</dd></div>
-      <div><dt>AI</dt><dd>LLM APIs · RAG</dd></div>
-      <div><dt>Automation</dt><dd>n8n workflows</dd></div>
-      <div><dt>Messaging</dt><dd>Email · WhatsApp · SMS</dd></div>
-      <div><dt>Hosting</dt><dd>Cloud / VPS</dd></div>
-    </dl>
+  <section class="block" id="business">
+    <div class="wrap">
+      <div class="head">
+        <div><div class="eyebrow">NorthBridge Business ERP</div><h2>The same core, built for SMEs and service businesses.</h2></div>
+        <p>From the first enquiry to the final invoice. Start with CRM and billing, then add purchase, inventory and payroll when you're ready.</p>
+      </div>
+      <div class="biz">
+        <div class="card">
+          <h3>Sales, purchase &amp; stock</h3>
+          <p style="color:var(--muted)">Quotations that turn into orders and GST invoices, purchase orders matched to bills, and stock that updates itself.</p>
+          <div class="chips"><span>CRM</span><span>Quotations</span><span>Sales orders</span><span>GST invoicing</span><span>Purchase</span><span>Vendors</span><span>Inventory</span><span>Expenses</span></div>
+        </div>
+        <div class="card">
+          <h3>People, money &amp; insight</h3>
+          <p style="color:var(--muted)">Payroll and HR for your team, accounting integration with Tally, and AI summaries of sales and cash flow every Monday.</p>
+          <div class="chips"><span>HR</span><span>Payroll</span><span>Accounting integration</span><span>Analytics</span><span>AI document reading</span><span>WhatsApp automation</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block sand">
+    <div class="wrap">
+      <div class="head">
+        <div><div class="eyebrow">Getting started</div><h2>Live in four steps, usually within six weeks.</h2></div>
+        <p>We do the heavy lifting: your existing spreadsheets and old software data come with you.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="n">Step 1</span><h3>Discovery</h3><p>We map how your fees, admissions and exams work today, and agree the modules and go-live date.</p></div>
+        <div class="step"><span class="n">Step 2</span><h3>Setup &amp; migration</h3><p>We configure fee structures, classes and report-card formats, and import your student and staff data.</p></div>
+        <div class="step"><span class="n">Step 3</span><h3>Training</h3><p>Hands-on sessions for office, accounts, teachers and leadership, plus short guides for parents.</p></div>
+        <div class="step"><span class="n">Step 4</span><h3>Go-live &amp; support</h3><p>We stay close for the first term with a named contact and monthly reviews.</p></div>
+      </div>
+      <div class="integr"><span class="lbl">Works with</span><span class="i">WhatsApp Business</span><span class="i">Tally</span><span class="i">Razorpay &amp; payment gateways</span><span class="i">Biometric &amp; RFID</span><span class="i">Google Workspace</span><span class="i">Microsoft 365</span><span class="i">GPS trackers</span></div>
+    </div>
   </section>
 
   <section class="block" id="pricing">
-    <div class="sec-head">
-      <div><div class="eyebrow">Pricing</div><h2>Priced the way you already count.</h2></div>
-      <p>Schools pay per student, businesses pay per user. You get a fixed quote after a short discovery call, with no surprise licence fees.</p>
-    </div>
-    <div class="pricing">
-      <div class="price"><h3>School ERP</h3><div class="basis">₹ per student <small>/ year</small></div><p>Core plus the modules you choose. Includes parent and staff logins.</p></div>
-      <div class="price"><h3>Business ERP</h3><div class="basis">₹ per user <small>/ month</small></div><p>Start with CRM and invoicing, then add purchase, inventory and HR when you're ready.</p></div>
-      <div class="price"><h3>Custom &amp; AI</h3><div class="basis">Project <small>quote</small></div><p>Custom ERP builds, migrations from spreadsheets or legacy systems, and AI automations on your existing tools.</p></div>
-    </div>
-  </section>
-
-  <section class="block" id="about">
-    <div class="sec-head">
-      <div><div class="eyebrow">About</div><h2>Built by someone who runs school ERP for a living.</h2></div>
-      <p>NorthBridge Automations started in 2026 in Jaipur to bring well-built ERP and practical AI to schools and growing businesses that big vendors overlook.</p>
-    </div>
-    <div class="founder">
-      <div class="mono-badge" aria-hidden="true">SC</div>
-      <div>
-        <h3>Satnam Singh Chhabra</h3>
-        <div class="role">Founder</div>
-        <p class="bio">Head of IT &amp; ERP and Head of Computer Science at an IB World School in Jaipur, with more than 15 years in IB and IGCSE schools in India. Satnam has led ERP and IT for international schools, mentors FIRST Robotics and NASA HERC rover teams, and is completing an Executive PG Certification in Data Science &amp; AI from IIT Roorkee.</p>
-        <div class="creds"><span>MCA</span><span>MCSE</span><span>RHCE</span><span>CompTIA A+ / N+</span><span>15+ yrs school IT &amp; ERP</span></div>
-        <p style="margin-top:16px"><a href="https://www.linkedin.com/in/satnam-chhabra-b6071528b/" target="_blank" rel="noopener">LinkedIn profile ↗</a></p>
+    <div class="wrap">
+      <div class="head">
+        <div><div class="eyebrow">Pricing</div><h2>Simple, transparent pricing. No surprise licence fees.</h2></div>
+        <p>Schools pay per student per year. Businesses pay per user per month. All plans include hosting, updates, backups and support. Prices exclude GST.</p>
       </div>
-    </div>
-  </section>
 
-  <section class="block" id="contact" style="border-top:0">
-    <div class="contact">
-      <div>
-        <div class="eyebrow">Pilot programme</div>
-        <h2>Running your school or business on spreadsheets and WhatsApp groups?</h2>
-        <p>Tell us how you work today. We'll map one process, such as fee collection, attendance alerts or quotations, and show it running on NorthBridge before you commit.</p>
+      <div class="ptabs" role="tablist" aria-label="Pricing type">
+        <button type="button" role="tab" id="tab-school" aria-selected="true" aria-controls="p-school">School ERP</button>
+        <button type="button" role="tab" id="tab-biz" aria-selected="false" aria-controls="p-biz">Business ERP</button>
+        <button type="button" role="tab" id="tab-auto" aria-selected="false" aria-controls="p-auto">Automation &amp; custom</button>
       </div>
-      <div class="mailbox">
-        <span class="eyebrow">Email us</span>
-        <code id="email">support@northbridgeautomations.co.in</code>
-        <div class="row">
-          <button class="btn primary" id="copy" type="button">Copy email</button>
-          <a class="btn" href="mailto:support@northbridgeautomations.co.in?subject=NorthBridge%20pilot%20enquiry">Open mail app</a>
+
+      <div class="plans" id="p-school" role="tabpanel" aria-labelledby="tab-school">
+        <div class="plan">
+          <h3>Essentials</h3><p class="for">For small schools moving off spreadsheets.</p>
+          <div class="price"><span class="amt">₹60</span><span class="per">/ student / year</span></div>
+          <div class="min">Minimum ₹15,000 / year</div>
+          <ul>
+            <li><svg><use href="#tick"/></svg>Core SIS: student &amp; staff records</li>
+            <li><svg><use href="#tick"/></svg>Student &amp; staff attendance</li>
+            <li><svg><use href="#tick"/></svg>Fees, online payments &amp; receipts</li>
+            <li><svg><use href="#tick"/></svg>Parent app, SMS &amp; email notices</li>
+            <li><svg><use href="#tick"/></svg>Timetable &amp; certificates</li>
+            <li><svg><use href="#tick"/></svg>Standard reports, email support</li>
+          </ul>
+          <a class="btn" href="#contact" data-plan="School ERP: Essentials">Start with Essentials</a>
         </div>
-        <span class="copied" id="copied" aria-live="polite"></span>
-        <span style="font-size:13px;opacity:.8">Based in Jaipur, Rajasthan. Working with clients across India.</span>
+        <div class="plan pop">
+          <span class="tag">Most popular</span>
+          <h3>Growth</h3><p class="for">The complete school ERP for growing K-12 schools.</p>
+          <div class="price"><span class="amt">₹120</span><span class="per">/ student / year</span></div>
+          <div class="min">Minimum ₹30,000 / year</div>
+          <ul>
+            <li class="inc"><svg><use href="#tick"/></svg>Everything in Essentials, plus</li>
+            <li><svg><use href="#tick"/></svg>Exams, gradebooks &amp; board report cards</li>
+            <li><svg><use href="#tick"/></svg>Homework, assignments &amp; diary</li>
+            <li><svg><use href="#tick"/></svg>Admissions CRM &amp; online forms</li>
+            <li><svg><use href="#tick"/></svg>HR &amp; payroll</li>
+            <li><svg><use href="#tick"/></svg>Transport, inventory &amp; library</li>
+            <li><svg><use href="#tick"/></svg>WhatsApp notifications &amp; Tally export</li>
+            <li><svg><use href="#tick"/></svg>Phone &amp; WhatsApp support</li>
+          </ul>
+          <a class="btn solid" href="#contact" data-plan="School ERP: Growth">Book a Growth demo</a>
+        </div>
+        <div class="plan">
+          <h3>AI Campus</h3><p class="for">For schools that want the AI layer working for them.</p>
+          <div class="price"><span class="amt">₹180</span><span class="per">/ student / year</span></div>
+          <div class="min">Minimum ₹50,000 / year</div>
+          <ul>
+            <li class="inc"><svg><use href="#tick"/></svg>Everything in Growth, plus</li>
+            <li><svg><use href="#tick"/></svg>AI assistant for parents &amp; staff on WhatsApp</li>
+            <li><svg><use href="#tick"/></svg>AI-drafted report-card comments</li>
+            <li><svg><use href="#tick"/></svg>Form, receipt &amp; document reading</li>
+            <li><svg><use href="#tick"/></svg>Fee-default &amp; attendance risk alerts</li>
+            <li><svg><use href="#tick"/></svg>Custom dashboards for leadership</li>
+            <li><svg><use href="#tick"/></svg>Priority support &amp; success manager</li>
+          </ul>
+          <a class="btn" href="#contact" data-plan="School ERP: AI Campus">Book an AI Campus demo</a>
+        </div>
       </div>
+
+      <div class="plans" id="p-biz" role="tabpanel" aria-labelledby="tab-biz" hidden>
+        <div class="plan">
+          <h3>Starter</h3><p class="for">For small teams that sell and bill.</p>
+          <div class="price"><span class="amt">₹299</span><span class="per">/ user / month</span></div>
+          <div class="min">Billed annually · minimum 5 users</div>
+          <ul>
+            <li><svg><use href="#tick"/></svg>CRM &amp; enquiry tracking</li>
+            <li><svg><use href="#tick"/></svg>Quotations &amp; sales orders</li>
+            <li><svg><use href="#tick"/></svg>GST invoicing &amp; payments</li>
+            <li><svg><use href="#tick"/></svg>Expenses</li>
+            <li><svg><use href="#tick"/></svg>Standard reports, email support</li>
+          </ul>
+          <a class="btn" href="#contact" data-plan="Business ERP: Starter">Start with Starter</a>
+        </div>
+        <div class="plan pop">
+          <span class="tag">Most popular</span>
+          <h3>Business</h3><p class="for">Run sales, purchase, stock and people in one place.</p>
+          <div class="price"><span class="amt">₹549</span><span class="per">/ user / month</span></div>
+          <div class="min">Billed annually · minimum 5 users</div>
+          <ul>
+            <li class="inc"><svg><use href="#tick"/></svg>Everything in Starter, plus</li>
+            <li><svg><use href="#tick"/></svg>Purchase, vendors &amp; inventory</li>
+            <li><svg><use href="#tick"/></svg>HR &amp; payroll</li>
+            <li><svg><use href="#tick"/></svg>Tally / accounting integration</li>
+            <li><svg><use href="#tick"/></svg>WhatsApp notifications</li>
+            <li><svg><use href="#tick"/></svg>Business analytics dashboards</li>
+          </ul>
+          <a class="btn solid" href="#contact" data-plan="Business ERP: Business">Book a demo</a>
+        </div>
+        <div class="plan">
+          <h3>AI Ops</h3><p class="for">Let AI handle the documents and the follow-ups.</p>
+          <div class="price"><span class="amt">₹849</span><span class="per">/ user / month</span></div>
+          <div class="min">Billed annually · minimum 5 users</div>
+          <ul>
+            <li class="inc"><svg><use href="#tick"/></svg>Everything in Business, plus</li>
+            <li><svg><use href="#tick"/></svg>AI assistant for team &amp; customers</li>
+            <li><svg><use href="#tick"/></svg>Invoice &amp; PO reading into the ERP</li>
+            <li><svg><use href="#tick"/></svg>Automated follow-ups &amp; workflows</li>
+            <li><svg><use href="#tick"/></svg>Weekly AI sales &amp; cash summaries</li>
+            <li><svg><use href="#tick"/></svg>Priority support</li>
+          </ul>
+          <a class="btn" href="#contact" data-plan="Business ERP: AI Ops">Book an AI Ops demo</a>
+        </div>
+      </div>
+
+      <div class="plans" id="p-auto" role="tabpanel" aria-labelledby="tab-auto" hidden>
+        <div class="plan">
+          <h3>Single automation</h3><p class="for">One workflow on the tools you already use.</p>
+          <div class="price"><span class="per">from</span><span class="amt">₹15,000</span><span class="per">one-time</span></div>
+          <div class="min">Delivered in 1–2 weeks</div>
+          <ul>
+            <li><svg><use href="#tick"/></svg>e.g. WhatsApp fee reminders from your sheet</li>
+            <li><svg><use href="#tick"/></svg>e.g. invoice reading into Tally</li>
+            <li><svg><use href="#tick"/></svg>e.g. enquiry auto-reply &amp; follow-up</li>
+            <li><svg><use href="#tick"/></svg>30 days of fixes included</li>
+          </ul>
+          <a class="btn" href="#contact" data-plan="Single automation">Discuss an automation</a>
+        </div>
+        <div class="plan pop">
+          <span class="tag">Best value</span>
+          <h3>Automation retainer</h3><p class="for">An automation team on call, every month.</p>
+          <div class="price"><span class="per">from</span><span class="amt">₹12,000</span><span class="per">/ month</span></div>
+          <div class="min">Up to 5 live workflows maintained</div>
+          <ul>
+            <li><svg><use href="#tick"/></svg>New workflows built every month</li>
+            <li><svg><use href="#tick"/></svg>AI chatbot &amp; knowledge assistant</li>
+            <li><svg><use href="#tick"/></svg>Monitoring, fixes &amp; monthly report</li>
+            <li><svg><use href="#tick"/></svg>WhatsApp, email &amp; Google/Microsoft</li>
+          </ul>
+          <a class="btn solid" href="#contact" data-plan="Automation retainer">Start a retainer</a>
+        </div>
+        <div class="plan">
+          <h3>Custom ERP</h3><p class="for">A system built around your exact process.</p>
+          <div class="price"><span class="per">from</span><span class="amt">₹2.5L</span><span class="per">project</span></div>
+          <div class="min">Fixed quote after discovery</div>
+          <ul>
+            <li><svg><use href="#tick"/></svg>Built on the NorthBridge core</li>
+            <li><svg><use href="#tick"/></svg>Data migration from legacy systems</li>
+            <li><svg><use href="#tick"/></svg>Your branding &amp; custom reports</li>
+            <li><svg><use href="#tick"/></svg>Annual support plan available</li>
+          </ul>
+          <a class="btn" href="#contact" data-plan="Custom ERP">Request a quote</a>
+        </div>
+      </div>
+
+      <div class="pnote">
+        <div class="offer">
+          <span class="eyebrow">Founding schools offer</span>
+          <h3>First 10 schools: free onboarding and 3 months free.</h3>
+          <p>Includes data migration and staff training (usually ₹15,000), with your per-student price locked for 3 years.</p>
+        </div>
+        <div class="fine">
+          <span><b>One-time onboarding:</b> ₹15,000 for schools, ₹10,000 for businesses (migration &amp; training).</span>
+          <span><b>WhatsApp &amp; SMS:</b> billed at provider cost, no markup.</span>
+          <span><b>Your data is yours:</b> export everything to Excel at any time.</span>
+          <span>All prices exclude 18% GST.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block sand">
+    <div class="wrap">
+      <div class="head">
+        <div><div class="eyebrow">Why NorthBridge</div><h2>Built differently from a typical school ERP.</h2></div>
+        <p>We're a focused team that has run school ERP from the inside, so we build for how Indian schools actually work.</p>
+      </div>
+      <div class="cmp">
+        <table>
+          <thead><tr><th></th><th>Typical school ERP</th><th>NorthBridge</th></tr></thead>
+          <tbody>
+            <tr><td>AI</td><td>Add-on, or not available</td><td class="us">Built into every module, with an AI Campus plan</td></tr>
+            <tr><td>Parent communication</td><td>Separate app parents rarely open</td><td class="us">WhatsApp-first, with app and email</td></tr>
+            <tr><td>Pricing</td><td>Quote-only, plus hidden module fees</td><td class="us">Published per-student prices</td></tr>
+            <tr><td>Setup</td><td>Generic setup, you do the data entry</td><td class="us">We migrate your data and train your staff</td></tr>
+            <tr><td>Customisation</td><td>Fixed product, change requests queue for months</td><td class="us">Modular core, custom workflows on request</td></tr>
+            <tr><td>Your data</td><td>Hard to export</td><td class="us">Full Excel export at any time</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="brochure" style="padding-block:64px">
+    <div class="wrap">
+      <div class="broch">
+        <div class="cover" aria-hidden="true"><svg style="color:#EEF2F6"><use href="#mark"/></svg></div>
+        <div>
+          <div class="eyebrow">Brochure</div>
+          <h3 style="margin-top:8px">Share NorthBridge with your management team</h3>
+          <p>Four pages covering the modules, the AI layer, pricing and how onboarding works. PDF, about 150 KB.</p>
+        </div>
+        <a class="btn dark" href="assets/NorthBridge-Automations-Brochure.pdf" download><svg><use href="#dl"/></svg>Download PDF</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block sand" id="about">
+    <div class="wrap">
+      <div class="head">
+        <div><div class="eyebrow">About</div><h2>Built by someone who runs school ERP for a living.</h2></div>
+        <p>NorthBridge Automations was founded in Jaipur in 2026 to bring well-built ERP and practical AI to schools and growing businesses that large vendors overlook.</p>
+      </div>
+      <div class="founder">
+        <div class="badge" aria-hidden="true">SC</div>
+        <div>
+          <h3>Satnam Singh Chhabra</h3>
+          <div class="role">Founder</div>
+          <p class="bio">Head of IT &amp; ERP and Head of Computer Science at an IB World School in Jaipur, with more than 15 years in IB and IGCSE schools across India. Satnam has led ERP and IT for international schools, mentors FIRST Robotics and NASA HERC rover teams, and is completing an Executive PG Certification in Data Science &amp; AI from IIT Roorkee.</p>
+          <div class="creds"><span>MCA</span><span>MCSE</span><span>RHCE</span><span>CompTIA A+ / N+</span><span>15+ yrs school IT &amp; ERP</span></div>
+          <p style="margin-top:16px"><a href="https://www.linkedin.com/in/satnam-chhabra-b6071528b/" target="_blank" rel="noopener">Connect on LinkedIn ↗</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="faq">
+    <div class="wrap">
+      <div class="head">
+        <div><div class="eyebrow">FAQ</div><h2>Questions schools ask us</h2></div>
+        <p>Can't find your answer? Email us and we'll reply within one working day.</p>
+      </div>
+      <div class="faq">
+        <details><summary>How long does it take to go live?</summary><p>Most schools are live within four to six weeks of signing, including data migration and training. Fees and attendance can go live first, with exams and payroll following.</p></details>
+        <details><summary>Can you move our data from our current software or Excel?</summary><p>Yes. We import student, staff, fee and past-result data from Excel or your existing software as part of onboarding.</p></details>
+        <details><summary>Is our students' data safe?</summary><p>Data is hosted on secure cloud servers with daily backups, encrypted connections and role-based access. Every action is logged, and the AI assistant follows the same permissions as the person using it.</p></details>
+        <details><summary>Do parents need to install an app?</summary><p>No. Parents can get notices, fee links and answers on WhatsApp. The parent app is there for those who want it.</p></details>
+        <details><summary>Can we start with only a few modules?</summary><p>Yes. Start with Essentials and upgrade at any time; you only pay the difference for the rest of the year.</p></details>
+        <details><summary>Do you work with businesses as well as schools?</summary><p>Yes. NorthBridge Business ERP runs on the same core for SMEs, institutions and service businesses, and we build custom automations on the tools you already use.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="block band" id="contact">
+    <div class="wrap contact">
+      <div>
+        <div class="eyebrow">Book a free demo</div>
+        <h2>See NorthBridge running with your own fee structure.</h2>
+        <p class="m" style="margin-top:14px">A 30-minute walkthrough tailored to your school or business. No obligation.</p>
+        <div class="cinfo">
+          <div><span>Email</span><a href="mailto:support@northbridgeautomations.co.in">support@northbridgeautomations.co.in</a></div>
+          <div><span>Location</span><b>Jaipur, Rajasthan, India</b></div>
+          <div><span>Founder</span><a href="https://www.linkedin.com/in/satnam-chhabra-b6071528b/" target="_blank" rel="noopener">Satnam Singh Chhabra on LinkedIn ↗</a></div>
+        </div>
+      </div>
+      <form class="demo" id="demo" novalidate>
+        <label>Your name<input id="f-name" name="name" required autocomplete="name"></label>
+        <label>Role<input id="f-role" name="role" placeholder="Principal, Director, Owner…"></label>
+        <label class="full">School or company<input id="f-org" name="org" required autocomplete="organization"></label>
+        <label>Phone / WhatsApp<input id="f-phone" name="phone" type="tel" autocomplete="tel"></label>
+        <label>Email<input id="f-email" name="email" type="email" required autocomplete="email"></label>
+        <label>Interested in<select id="f-plan" name="plan">
+          <option>School ERP: Growth</option><option>School ERP: Essentials</option><option>School ERP: AI Campus</option>
+          <option>Business ERP: Starter</option><option>Business ERP: Business</option><option>Business ERP: AI Ops</option>
+          <option>Single automation</option><option>Automation retainer</option><option>Custom ERP</option></select></label>
+        <label>Students / users<input id="f-size" name="size" inputmode="numeric" placeholder="e.g. 850"></label>
+        <label class="full">Anything we should know?<textarea id="f-msg" name="msg" placeholder="Current software, biggest pain point, preferred demo time"></textarea></label>
+        <button class="btn solid full" type="submit">Request my demo</button>
+        <p class="fmsg" id="fmsg" aria-live="polite"></p>
+      </form>
     </div>
   </section>
 </main>
 
-<footer class="wrap">
-  <span>© 2026 NorthBridge Automations · Jaipur, India</span>
-  <span>ERP Systems · Business Automation · AI Solutions</span>
+<footer>
+  <div class="wrap">
+    <span>© 2026 NorthBridge Automations · Jaipur, India</span>
+    <span>ERP Systems · Business Automation · AI Solutions · <a href="assets/NorthBridge-Automations-Brochure.pdf" download>Brochure (PDF)</a></span>
+  </div>
 </footer>
 
 <script>
 (function(){
-  const data = {
-    school: {
-      mods: ["Students","Attendance","Exams & marks","Fees","Timetable","Homework","Parent comms","Transport","HR & payroll"],
-      on: ["Students","Attendance","Fees","Parent comms","Exams & marks","Timetable"],
-      feed: [
-        ["Fee reminder sent on WhatsApp to 142 parents · Term 2","09:00"],
-        ["Absence alert: Grade 7B, 3 students, parents notified","09:42"],
-        ["Report-card comments drafted for Grade 10 Science","11:15"],
-        ["Bus route R4 delayed 10 min, 38 families informed","14:05"]
-      ]
-    },
-    business: {
-      mods: ["CRM","Quotations","Purchase","Inventory","Vendors","Invoicing","Expenses","HR","Payroll"],
-      on: ["CRM","Quotations","Inventory","Invoicing","Expenses"],
-      feed: [
-        ["Quotation Q-1042 sent to client, follow-up set for 3 days","10:20"],
-        ["Supplier invoice read and matched to PO-318","11:02"],
-        ["Low stock: A4 paper below reorder level, PO drafted","12:30"],
-        ["Weekly sales summary emailed to owner","18:00"]
-      ]
-    }
+  var data = {
+    school:{kpis:[["₹14.2L","Fees collected this term",72],["94.6%","Attendance today",95],["38","New enquiries this week",60]],
+      feed:[["WHATSAPP","Fee reminder sent to 142 parents · Term 2","09:00"],["ALERT","Grade 7B: 3 absent, parents notified","09:42"],["AI","Report-card comments drafted · Grade 10 Science","11:15"],["TRANSPORT","Route R4 running 10 min late · 38 families told","14:05"],["ADMISSIONS","Enquiry from website · Grade 1 · follow-up set","15:30"]]},
+    business:{kpis:[["₹8.6L","Invoiced this month",64],["23","Open quotations",45],["6","Items below reorder",30]],
+      feed:[["SALES","Quotation Q-1042 sent · follow-up in 3 days","10:20"],["AI","Supplier invoice read and matched to PO-318","11:02"],["STOCK","A4 paper below reorder level · PO drafted","12:30"],["REPORT","Weekly sales summary emailed to owner","18:00"]]}
   };
-  const modsEl = document.getElementById("mods"), feedEl = document.getElementById("feed");
-  let timer, ed = "school";
+  var ed="school", timer, kpis=document.getElementById("kpis"), feed=document.getElementById("feed");
+  function row(r,n){return '<div class="row'+(n?' new':'')+'"><span class="ch">'+r[0]+'</span><span>'+r[1]+'</span><span class="t">'+r[2]+'</span></div>';}
   function render(){
-    const d = data[ed];
-    modsEl.innerHTML = d.mods.map(m => `<div class="mod${d.on.includes(m)?" on":""}">${m}</div>`).join("");
-    feedEl.innerHTML = d.feed.slice(0,3).map(r => row(r)).join("");
-    let i = 3; clearInterval(timer);
-    if (!matchMedia("(prefers-reduced-motion: reduce)").matches){
-      timer = setInterval(() => {
-        const r = d.feed[i % d.feed.length]; i++;
-        feedEl.insertAdjacentHTML("afterbegin", row(r, true));
-        while (feedEl.children.length > 3) feedEl.lastElementChild.remove();
-      }, 3200);
+    var d=data[ed];
+    kpis.innerHTML=d.kpis.map(function(k){return '<div class="kpi"><div class="v">'+k[0]+'</div><div class="l">'+k[1]+'</div><div class="bar"><i style="width:'+k[2]+'%"></i></div></div>';}).join("");
+    feed.innerHTML=d.feed.slice(0,3).map(function(r){return row(r)}).join("");
+    clearInterval(timer); var i=3;
+    if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+      timer=setInterval(function(){var r=d.feed[i%d.feed.length];i++;feed.insertAdjacentHTML("afterbegin",row(r,true));while(feed.children.length>3)feed.lastElementChild.remove();},3400);
     }
   }
-  function row(r, isNew){ return `<div class="row${isNew?" new":""}"><span class="dot"></span><span>${r[0]}</span><span class="t">${r[1]}</span></div>`; }
-  document.querySelectorAll(".seg button").forEach(b => b.addEventListener("click", () => {
-    ed = b.dataset.ed;
-    document.querySelectorAll(".seg button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
-    render();
-  }));
+  document.querySelectorAll(".seg button").forEach(function(b){b.addEventListener("click",function(){ed=b.dataset.ed;document.querySelectorAll(".seg button").forEach(function(x){x.setAttribute("aria-pressed",String(x===b))});render();});});
   render();
 
-  const out = document.getElementById("copied");
-  document.getElementById("copy").addEventListener("click", () => {
-    const text = document.getElementById("email").textContent;
-    const fallback = () => { const s = getSelection(), r = document.createRange(); r.selectNodeContents(document.getElementById("email")); s.removeAllRanges(); s.addRange(r); out.textContent = "Selected. Press Ctrl+C to copy."; };
-    try { navigator.clipboard.writeText(text).then(() => out.textContent = "Copied", fallback); } catch(e){ fallback(); }
+  var tabs=document.querySelectorAll('[role="tab"]');
+  tabs.forEach(function(t){t.addEventListener("click",function(){tabs.forEach(function(x){var on=x===t;x.setAttribute("aria-selected",String(on));document.getElementById(x.getAttribute("aria-controls")).hidden=!on;});});});
+
+  var sel=document.getElementById("f-plan");
+  document.querySelectorAll("[data-plan]").forEach(function(a){a.addEventListener("click",function(){sel.value=a.dataset.plan;});});
+
+  document.getElementById("demo").addEventListener("submit",function(e){
+    e.preventDefault();
+    var f=e.target.elements, msg=document.getElementById("fmsg");
+    var name=f.name.value.trim(), org=f.org.value.trim(), email=f.email.value.trim();
+    if(!name||!org||!email){msg.textContent="Please add your name, school or company, and email.";return;}
+    var body="Name: "+name+"\nRole: "+f.role.value+"\nOrganisation: "+org+"\nPhone/WhatsApp: "+f.phone.value+"\nEmail: "+email+"\nInterested in: "+f.plan.value+"\nStudents/users: "+f.size.value+"\n\n"+f.msg.value;
+    window.location.href="mailto:support@northbridgeautomations.co.in?subject="+encodeURIComponent("Demo request: "+org)+"&body="+encodeURIComponent(body);
+    msg.textContent="Your email app should open with your request ready to send. If it doesn't, email support@northbridgeautomations.co.in.";
   });
 })();
 </script>
